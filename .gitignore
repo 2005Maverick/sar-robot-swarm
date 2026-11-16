@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# LaTeX build files
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+report/*.lof
+report/*.lot
+
+# Webots per-user files
+worlds/.*.wbproj
+worlds/.*.jpg
+
+# Course handouts (the distribution sheet lists the whole batch) and template notes
+AISR_*
+report/README.txt
+
+# Working notes and local tool settings
+docs/
+.claude/
+report/
+
+/.local-maintenance/
+.venv/
