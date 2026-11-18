@@ -113,3 +113,16 @@ WANDER explores with a slowly changing random curve when no higher layer is acti
 AVOID takes priority over HOME, SEEK, CHECKIN and WANDER so moving robots respond to obstacles first.
 DONE has the highest priority so a finished robot stays parked, even near other robots.
 The behaviour module uses no Webots imports, allowing its arbitration to be unit-tested independently.
+
+## Experiments and results
+
+The supervisor sets up each run, tracks discoveries, and records mission metrics.
+Method A requires every robot to find all victims independently.
+Method B shares discoveries through robot-to-robot radio messages.
+The experiment runner evaluates six configurations with ten random seeds each.
+Configurations vary the method, number of robots, and radio packet loss.
+For four robots with no packet loss, method A completed 0 of 10 runs.
+Under the same conditions, method B completed all 10 runs.
+These bundled results show the benefit of sharing discoveries in this scenario.
+Results are stored in CSV files, and the analysis script generates figures and tables.
+The tests check message parsing and metrics such as discovery times and coverage.
