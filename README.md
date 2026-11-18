@@ -78,3 +78,14 @@ behaviour was added (see `report/figures/fig_failure.png`).
 ## Scope
 
 This is a Webots simulation. The Python test suite exercises the reactive controller without Webots.
+
+## Arena layout and configuration
+
+The simulation uses a 2 m by 2 m search-and-rescue arena.
+Walls and rubble create obstacles that the robots must navigate around.
+Four victims are placed in the arena, each with a short-range radio beacon.
+Four e-puck robots explore the environment and search for these victims.
+The home base is centred at (-0.8, -0.8) metres.
+A robot counts as home when it is within 0.2 metres of that centre.
+The run_config.json file selects method A or B and the number of robots.
+It also sets radio packet loss, the random seed, and whether the run uses batch mode.
