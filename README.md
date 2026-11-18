@@ -100,3 +100,16 @@ Robot-to-robot communication has a range of 0.7 metres.
 A discovery message uses the format FOUND,id,x,y to identify and locate a victim.
 In method B, robots broadcast and periodically rebroadcast known discoveries.
 Sharing this information helps robots skip victims that the team already knows.
+
+## Behaviour layers and priority
+
+The controller checks six behaviour layers in order and uses the first active rule.
+DONE stops a robot once it knows every victim and has reached the home base.
+AVOID turns away from nearby obstacles, then drives straight briefly to escape.
+HOME guides the robot back to base when all victims are known.
+SEEK steers towards a beacon belonging to a victim the robot does not yet know.
+CHECKIN sends a robot home to collect news when method B has no new discoveries for 120 seconds.
+WANDER explores with a slowly changing random curve when no higher layer is active.
+AVOID takes priority over HOME, SEEK, CHECKIN and WANDER so moving robots respond to obstacles first.
+DONE has the highest priority so a finished robot stays parked, even near other robots.
+The behaviour module uses no Webots imports, allowing its arbitration to be unit-tested independently.
