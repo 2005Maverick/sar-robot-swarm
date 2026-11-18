@@ -89,3 +89,14 @@ The home base is centred at (-0.8, -0.8) metres.
 A robot counts as home when it is within 0.2 metres of that centre.
 The run_config.json file selects method A or B and the number of robots.
 It also sets radio packet loss, the random seed, and whether the run uses batch mode.
+
+## Robot sensors and radio communication
+
+Each e-puck uses eight proximity sensors to detect nearby obstacles.
+GPS provides the robot's position, while the inertial unit provides its heading.
+The controller uses these readings to select actions and set wheel motor speeds.
+Victim beacons transmit on channel 1 with a range of 0.3 metres.
+Robot-to-robot communication has a range of 0.7 metres.
+A discovery message uses the format FOUND,id,x,y to identify and locate a victim.
+In method B, robots broadcast and periodically rebroadcast known discoveries.
+Sharing this information helps robots skip victims that the team already knows.
